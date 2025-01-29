@@ -1,18 +1,36 @@
-<section class="card-container">
-  
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>ordenes[0].numero</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>ordenes[0].descripcion</p>
-    </mat-card-content>
-    <mat-card-footer class="example-card-footer">
-      <mat-chip-set aria-label="Chihuahua traits">
-        <mat-chip>ordenes[0].creacion</mat-chip>
-        <mat-chip>ordenes[0].fechaAtencion</mat-chip>
-      </mat-chip-set>
-    </mat-card-footer>
-  </mat-card>
-  
-</section>
+<button mat-raised-button color="warn" (click)="deleteOrden(orden.id)">Delete</button>
+<form [formGroup]="ordenForm" class="example-form">
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Numero</mat-label>
+        <input type="number" matInput formControlName="numero" value="">
+      </mat-form-field></td>
+    </tr>
+  </table>
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Make a description" formControlName="descripcion"></textarea>
+    </mat-form-field>
+  </p>
+
+<p>
+  <mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" formControlName="fechaAtencion">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="closeModal()">
+    <!-- <mat-icon>cancel</mat-icon> -->
+    Cancelar
+  </button>
+  <button mat-raised-button color="primary" (click)="Update(id)">Guardar</button>
+</p>
+
+<p>
+</p>
+</form>

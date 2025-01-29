@@ -1,9 +1,10 @@
 section{
   padding-top: 10px;
   padding-left: 10px;
+  padding-right: 10px;
 }
 .example-card {
-  max-width: 400px;
+  max-width: 450px;
   color: white;
 }
 
@@ -13,13 +14,13 @@ section{
 
 .example-button-container {
   position: absolute; /* O fixed si quieres que permanezca en su lugar al hacer scroll */
-  right: 40px; 
+  right: 10px; 
 }
 
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px; 
+  gap: 9px; 
 }
 
 .btn-space{

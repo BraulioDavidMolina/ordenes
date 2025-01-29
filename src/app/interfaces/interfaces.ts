@@ -1,8 +1,10 @@
 import { Timestamp } from "@angular/fire/firestore";
 
 export interface ordenes {
-    id: number;
+    id: string;
     numero: number;
-    fechaAtencion: Timestamp;
     descripcion: string;
+    fechaAtencion: Timestamp;
+    created: Timestamp;
+    edited: Timestamp;
 }

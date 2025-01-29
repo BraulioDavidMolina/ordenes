@@ -10,6 +10,8 @@ import { ordenes } from '../../interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { MakeordenComponent } from '../makeorden/makeorden.component';
 import { CommonModule } from '@angular/common';
+import { ViewordenComponent } from '../vieworden/vieworden.component';
+import { ConfirmationComponent } from '../../components/confirmation/confirmation.component';
 
 
 
@@ -33,6 +35,8 @@ export class OrdenesComponent implements OnInit {
   openDialog() {
     this.dialog.open(MakeordenComponent, {
       data: {},
+      height: '500px',
+      width: '600px',
     });
   }
 
@@ -44,6 +48,15 @@ export class OrdenesComponent implements OnInit {
     this._ordenesSvc.getOrdenes().subscribe((data) => {
       this.ordenes = data;
     })
+  }
+
+  viewOrden(id: string) {
+    //console.log('id: ', id)
+    this.dialog.open(ViewordenComponent, {
+      data: { id },
+      height: '500px',
+      width: '600px',
+    });
   }
 
 

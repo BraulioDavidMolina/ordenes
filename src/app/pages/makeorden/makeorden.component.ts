@@ -6,12 +6,11 @@ import { ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { OrdenesService } from '../../services/ordenes.service';
-import { Firestore } from '@angular/fire/firestore';
-import { ordenes } from '../../interfaces/interfaces';
+import { MatDialog } from '@angular/material/dialog';
 
-const ANGULAR_MATERIAL = [MatInputModule, MatFormFieldModule, FormsModule, MatButtonModule, MatDatepickerModule];
+
+const ANGULAR_MATERIAL = [MatInputModule, MatFormFieldModule, FormsModule, MatButtonModule, MatDatepickerModule,];
 
 
 @Component({
@@ -25,7 +24,7 @@ const ANGULAR_MATERIAL = [MatInputModule, MatFormFieldModule, FormsModule, MatBu
 })
 export class MakeordenComponent implements OnInit {
 
-
+  dialog = inject(MatDialog);
 
   private readonly _fb = inject(FormBuilder)
   private readonly _ordenSvs = inject(OrdenesService)
@@ -49,8 +48,12 @@ export class MakeordenComponent implements OnInit {
 
   async altaOrden() {
     const orden = this.ordenForm.value;
-    console.log('data: ', orden)
     this._ordenSvs.addOrden(orden);
+    this.closeModal();
+  }
+
+  closeModal(): void {
+    this.dialog.closeAll();
   }
 
 

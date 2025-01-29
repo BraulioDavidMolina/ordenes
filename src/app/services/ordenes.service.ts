@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, collectionData, deleteDoc, doc, DocumentReference, Firestore, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, deleteDoc, doc, DocumentReference, Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ordenes } from '../interfaces/interfaces';
 import { DocumentData } from '@angular/fire/compat/firestore';
@@ -21,7 +21,18 @@ export class OrdenesService {
 
 
   addOrden(orden: Partial<ordenes>): Promise<DocumentReference<DocumentData, DocumentData>> {
-    return addDoc(this._ordenCollection, orden)
+    return addDoc(this._ordenCollection, {
+      created: new Date(),
+      edited: new Date(),
+      ...orden,
+    })
+  }
+
+
+  async getOrdenById(id: string): Promise<ordenes> {
+    const docRef = this._getDocRef(id);
+    const documentData = await getDoc(docRef);
+    return documentData.data() as ordenes;
   }
 
   updateOrden(id: string, orden: ordenes) {
