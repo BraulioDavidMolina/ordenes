@@ -10,7 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { OrdenesService } from '../../services/ordenes.service';
-import { ordenes } from '../../interfaces/interfaces';
+import { orden } from '../../interfaces/interfaces';
 import { from } from 'rxjs';
 import { ConfirmationComponent } from '../../components/confirmation/confirmation.component';
 
@@ -44,7 +44,7 @@ export class ViewordenComponent implements OnInit {
   }
 
   ordenForm!: FormGroup;
-  orden = {} as ordenes;
+  orden = {} as orden;
 
 
   ngOnInit(): void {
@@ -92,7 +92,7 @@ export class ViewordenComponent implements OnInit {
 
 
 
-  private setFormValues(orden: ordenes): void {
+  private setFormValues(orden: orden): void {
     this.ordenForm.patchValue({
       numero: orden.numero,
       descripcion: orden.descripcion,

@@ -1,6 +1,6 @@
 import { Timestamp } from "@angular/fire/firestore";
 
-export interface ordenes {
+export interface orden {
     id: string;
     numero: number;
     descripcion: string;

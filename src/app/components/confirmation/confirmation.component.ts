@@ -4,7 +4,7 @@ import { OrdenesService } from '../../services/ordenes.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { from } from 'rxjs';
-import { ordenes } from '../../interfaces/interfaces';
+import { orden } from '../../interfaces/interfaces';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -24,7 +24,7 @@ export class ConfirmationComponent implements OnInit {
 
   idData: string;
   dialog = inject(MatDialog);
-  orden = {} as ordenes;
+  orden = {} as orden;
   ordenForm!: FormGroup;
 
 

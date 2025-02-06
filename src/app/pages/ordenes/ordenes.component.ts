@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { OrdenesService } from '../../services/ordenes.service';
-import { ordenes } from '../../interfaces/interfaces';
+import { orden } from '../../interfaces/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { MakeordenComponent } from '../makeorden/makeorden.component';
 import { CommonModule } from '@angular/common';
@@ -40,7 +40,7 @@ export class OrdenesComponent implements OnInit {
     });
   }
 
-  ordenes!: ordenes[];
+  ordenes!: orden[];
 
   private readonly _ordenesSvc = inject(OrdenesService);
 
