@@ -12,13 +12,24 @@
 <section class="card-container">
 
   <mat-card class="example-card" appearance="outlined" *ngFor="let orden of ordenes" (click)="viewOrden(orden.id)">
+
+    <mat-card-header>
+      <mat-card-subtitle>Numero de orden: </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-footer class="example-card-footer">
+      <mat-chip-set aria-label="">
+        <mat-chip>{{orden.numero}}</mat-chip>
+      </mat-chip-set>
+    </mat-card-footer>
+
     <mat-card-header>
       <mat-card-subtitle>Fecha programada</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-footer class="example-card-footer">
       <mat-chip-set aria-label="">
-        <mat-chip>{{orden.fechaAtencion.toDate()}}</mat-chip>
+        <mat-chip>{{orden.fechaAtencion.toDate() | date: 'dd/MM/yyyy'}}</mat-chip>
       </mat-chip-set>
     </mat-card-footer>
 
@@ -33,15 +44,18 @@
 
       <mat-chip-set aria-label="">
         <mat-card-subtitle>Creado en: </mat-card-subtitle>
-        <mat-chip>{{orden.created.toDate()}}</mat-chip>
+        <mat-chip>{{orden.created.toDate() | date: 'dd/MM/yyyy'}}</mat-chip>
       </mat-chip-set>
 
       <mat-chip-set aria-label="">
         <mat-card-subtitle>Editado en: </mat-card-subtitle>
-        <mat-chip>{{orden.edited.toDate()}}</mat-chip>
+        <mat-chip>{{orden.edited.toDate() | date: 'dd/MM/yyyy'}}</mat-chip>
       </mat-chip-set>
       
     </mat-card-footer>
   </mat-card>
   
 </section>
+
+
+<!-- .toDate() | date: 'dd/MM/yyyy' -->

@@ -96,7 +96,7 @@ export class ViewordenComponent implements OnInit {
     this.ordenForm.patchValue({
       numero: orden.numero,
       descripcion: orden.descripcion,
-      fechaAtencion: orden.fechaAtencion.toDate(),
+      fechaAtencion: orden.fechaAtencion,
     });
   }
 

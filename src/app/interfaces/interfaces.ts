@@ -7,4 +7,5 @@ export interface orden {
     fechaAtencion: Timestamp;
     created: Timestamp;
     edited: Timestamp;
+    //editedd: Date;
 }
